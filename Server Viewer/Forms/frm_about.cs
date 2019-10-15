@@ -35,7 +35,7 @@ namespace Server_Viewer.Forms
 
         private void frm_about_FormClosing(object sender, FormClosingEventArgs e)
         {
-            handler.openabt = false;
+            Handler.OpenAbt = false;
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

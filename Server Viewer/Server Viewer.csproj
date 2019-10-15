@@ -70,12 +70,6 @@
   <ItemGroup>
     <Compile Include="Class\INIDatei.cs" />
     <Compile Include="Class\WriteTXT.cs" />
-    <Compile Include="Forms\easteregg.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\easteregg.Designer.cs">
-      <DependentUpon>easteregg.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\frm_about.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,9 +97,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\easteregg.resx">
-      <DependentUpon>easteregg.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frm_about.resx">
       <DependentUpon>frm_about.cs</DependentUpon>
     </EmbeddedResource>

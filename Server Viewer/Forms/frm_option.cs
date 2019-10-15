@@ -30,7 +30,7 @@ namespace Server_Viewer.forms
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 Pfad = openFileDialog1.FileName;
-                handler.loginexepath = Pfad;
+                Handler.LoginExePath = Pfad;
                 this.tb_loginpath.Text = Pfad;
             }
         }
@@ -44,7 +44,7 @@ namespace Server_Viewer.forms
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 Pfad = openFileDialog1.FileName;
-                handler.charexepath = Pfad;
+                Handler.CharExePath = Pfad;
                 this.tb_charpath.Text = Pfad;
             }
         }
@@ -58,20 +58,20 @@ namespace Server_Viewer.forms
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 Pfad = openFileDialog1.FileName;
-                handler.mapexepath = Pfad;
+                Handler.MapExePath = Pfad;
                 this.tb_mappath.Text = Pfad;
             }
         }
 
         private void start_Load(object sender, EventArgs e)
         {
-            lb_status.ForeColor = handler.Status;
-            lb_debug.ForeColor = handler.Debug;
-            lb_error.ForeColor = handler.Error;
-            lb_info.ForeColor = handler.Info;
-            lb_notice.ForeColor = handler.Notice;
-            lb_sql.ForeColor = handler.SQL;
-            lb_warning.ForeColor = handler.Warning;
+            lb_status.ForeColor = Handler.Status;
+            lb_debug.ForeColor = Handler.Debug;
+            lb_error.ForeColor = Handler.Error;
+            lb_info.ForeColor = Handler.Info;
+            lb_notice.ForeColor = Handler.Notice;
+            lb_sql.ForeColor = Handler.Sql;
+            lb_warning.ForeColor = Handler.Warning;
 
             lb_status.BackColor = Color.Transparent;
             lb_debug.BackColor = Color.Transparent;
@@ -85,31 +85,31 @@ namespace Server_Viewer.forms
             label3.BackColor = Color.Transparent;
             gb_color.BackColor = Color.Transparent;
 
-            tb_loginpath.Text = handler.loginexepath;
-            tb_charpath.Text = handler.charexepath;
-            tb_mappath.Text = handler.charexepath;
+            tb_loginpath.Text = Handler.LoginExePath;
+            tb_charpath.Text = Handler.CharExePath;
+            tb_mappath.Text = Handler.CharExePath;
 
-            if (handler.colorMODE)
+            if (Handler.ColorMode)
                 cb_coloronoff.Checked = true;
 
-            if (handler.colorOLDREV)
+            if (Handler.ColorOldRev)
                 cb_oldrev.Checked = true;
         }
         #region buttons and loads
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             if (cb_coloronoff.Checked)
-                handler.colorMODE = true;
+                Handler.ColorMode = true;
             else
-                handler.colorMODE = false;
+                Handler.ColorMode = false;
         }
 
         private void cb_oldrev_CheckedChanged(object sender, EventArgs e)
         {
             if (cb_oldrev.Checked)
-                handler.colorOLDREV = true;
+                Handler.ColorOldRev = true;
             else
-                handler.colorOLDREV = false;
+                Handler.ColorOldRev = false;
         }
 
         private void lb_status_Click(object sender, EventArgs e)
@@ -117,7 +117,7 @@ namespace Server_Viewer.forms
             ColorDialog colorDlg = new ColorDialog();
             colorDlg.ShowDialog();
             lb_status.ForeColor = colorDlg.Color;
-            handler.Status = colorDlg.Color;
+            Handler.Status = colorDlg.Color;
         }
 
         private void btn_cancel_Click(object sender, EventArgs e)
@@ -127,7 +127,7 @@ namespace Server_Viewer.forms
 
         private void btn_okey_Click(object sender, EventArgs e)
         {
-            handler.saveopt();
+            Handler.SaveOpt();
             Close();
         }
 
@@ -136,7 +136,7 @@ namespace Server_Viewer.forms
             ColorDialog colorDlg = new ColorDialog();
             colorDlg.ShowDialog();
             lb_warning.ForeColor = colorDlg.Color;
-            handler.Warning = colorDlg.Color;
+            Handler.Warning = colorDlg.Color;
         }
 
         private void lb_error_Click(object sender, EventArgs e)
@@ -144,7 +144,7 @@ namespace Server_Viewer.forms
             ColorDialog colorDlg = new ColorDialog();
             colorDlg.ShowDialog();
             lb_error.ForeColor = colorDlg.Color;
-            handler.Error = colorDlg.Color;
+            Handler.Error = colorDlg.Color;
         }
 
         private void lb_info_Click(object sender, EventArgs e)
@@ -152,7 +152,7 @@ namespace Server_Viewer.forms
             ColorDialog colorDlg = new ColorDialog();
             colorDlg.ShowDialog();
             lb_info.ForeColor = colorDlg.Color;
-            handler.Info = colorDlg.Color;
+            Handler.Info = colorDlg.Color;
         }
 
         private void lb_notice_Click(object sender, EventArgs e)
@@ -160,7 +160,7 @@ namespace Server_Viewer.forms
             ColorDialog colorDlg = new ColorDialog();
             colorDlg.ShowDialog();
             lb_notice.ForeColor = colorDlg.Color;
-            handler.Notice = colorDlg.Color;
+            Handler.Notice = colorDlg.Color;
         }
 
         private void lb_sql_Click(object sender, EventArgs e)
@@ -168,7 +168,7 @@ namespace Server_Viewer.forms
             ColorDialog colorDlg = new ColorDialog();
             colorDlg.ShowDialog();
             lb_sql.ForeColor = colorDlg.Color;
-            handler.SQL = colorDlg.Color;
+            Handler.Sql = colorDlg.Color;
         }
 
         private void lb_debug_Click(object sender, EventArgs e)
@@ -176,13 +176,13 @@ namespace Server_Viewer.forms
             ColorDialog colorDlg = new ColorDialog();
             colorDlg.ShowDialog();
             lb_debug.ForeColor = colorDlg.Color;
-            handler.Debug = colorDlg.Color;
+            Handler.Debug = colorDlg.Color;
         }
         #endregion
 
         private void frm_option_FormClosing(object sender, FormClosingEventArgs e)
         {
-            handler.openopt = false;
+            Handler.OpenOpt = false;
         }
     }
 }

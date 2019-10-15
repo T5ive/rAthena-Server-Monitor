@@ -1,0 +1,13 @@
+D:\Github\rAthena-Server-Monitor\Server Viewer\bin\Debug\Server Monitor.exe.config
+D:\Github\rAthena-Server-Monitor\Server Viewer\bin\Debug\Server Monitor.exe
+D:\Github\rAthena-Server-Monitor\Server Viewer\bin\Debug\Server Monitor.pdb
+D:\Github\rAthena-Server-Monitor\Server Viewer\obj\x86\Debug\Server Viewer.csprojAssemblyReference.cache
+D:\Github\rAthena-Server-Monitor\Server Viewer\obj\x86\Debug\Server_Viewer.Forms.easteregg.resources
+D:\Github\rAthena-Server-Monitor\Server Viewer\obj\x86\Debug\Server_Viewer.Forms.frm_about.resources
+D:\Github\rAthena-Server-Monitor\Server Viewer\obj\x86\Debug\Server_Viewer.Forms.frm_errorlog.resources
+D:\Github\rAthena-Server-Monitor\Server Viewer\obj\x86\Debug\Server_Viewer.main.resources
+D:\Github\rAthena-Server-Monitor\Server Viewer\obj\x86\Debug\Server_Viewer.forms.frm_option.resources
+D:\Github\rAthena-Server-Monitor\Server Viewer\obj\x86\Debug\Server_Viewer.Properties.Resources.resources
+D:\Github\rAthena-Server-Monitor\Server Viewer\obj\x86\Debug\Server Viewer.csproj.GenerateResource.cache
+D:\Github\rAthena-Server-Monitor\Server Viewer\obj\x86\Debug\Server Monitor.exe
+D:\Github\rAthena-Server-Monitor\Server Viewer\obj\x86\Debug\Server Monitor.pdb

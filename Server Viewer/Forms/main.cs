@@ -49,11 +49,11 @@ namespace Server_Viewer
         {
             if (!File.Exists(Application.StartupPath + @"\SM_config.ini"))
             {
-                handler.inicreate();
+                Handler.IniCreate();
             }
             else
             {
-                handler.iniread();
+                Handler.IniRead();
             }
 
             frm_errorlog.tb_errors = new System.Windows.Forms.TextBox();
@@ -92,9 +92,9 @@ namespace Server_Viewer
                 {
                     try
                     {
-                        KillAll(procnamecfg(handler.loginexepath));
-                        KillAll(procnamecfg(handler.charexepath));
-                        KillAll(procnamecfg(handler.mapexepath));
+                        KillAll(procnamecfg(Handler.LoginExePath));
+                        KillAll(procnamecfg(Handler.CharExePath));
+                        KillAll(procnamecfg(Handler.MapExePath));
                     }
                     catch
                     {
@@ -103,9 +103,9 @@ namespace Server_Viewer
                     RTBLogin.Clear();
                     RTBChar.Clear();
                     RTBMap.Clear();
-                    RunWithRedirect(handler.loginexepath);
-                    RunWithRedirect(handler.charexepath);
-                    RunWithRedirect(handler.mapexepath);
+                    RunWithRedirect(Handler.LoginExePath);
+                    RunWithRedirect(Handler.CharExePath);
+                    RunWithRedirect(Handler.MapExePath);
                 }
                 catch (Exception err)
                 {
@@ -129,17 +129,17 @@ namespace Server_Viewer
                 lb_error.Text = "Error: " + errormsgs;
                 lb_users.Text = "" + playermsgs;
                 lb_warnings.Text = "Warning: " + warnmsgs;
-                KillAll(procnamecfg(handler.loginexepath));
-                KillAll(procnamecfg(handler.charexepath));
-                KillAll(procnamecfg(handler.mapexepath));
+                KillAll(procnamecfg(Handler.LoginExePath));
+                KillAll(procnamecfg(Handler.CharExePath));
+                KillAll(procnamecfg(Handler.MapExePath));
             }
         }
 
         private void Form2_FormClosed(object sender, FormClosedEventArgs e)
         {
-                KillAll(procnamecfg(handler.loginexepath));
-                KillAll(procnamecfg(handler.charexepath));
-                KillAll(procnamecfg(handler.mapexepath));
+                KillAll(procnamecfg(Handler.LoginExePath));
+                KillAll(procnamecfg(Handler.CharExePath));
+                KillAll(procnamecfg(Handler.MapExePath));
                 Process me = Process.GetCurrentProcess();
                 int i = 0;
                 bool flag = true;
@@ -210,9 +210,9 @@ namespace Server_Viewer
         public void proc_HasExited(object sender, EventArgs e)
         {
 
-            string loginn = procnamecfg(handler.loginexepath);
-            string charr = procnamecfg(handler.charexepath);
-            string mapp = procnamecfg(handler.mapexepath);
+            string loginn = procnamecfg(Handler.LoginExePath);
+            string charr = procnamecfg(Handler.CharExePath);
+            string mapp = procnamecfg(Handler.MapExePath);
             Process cproc = ((Process)sender);
             string switchval = cproc.ProcessName.ToLower();
 
@@ -241,9 +241,9 @@ namespace Server_Viewer
         {
             if (e.Data != null)
             {
-                string loginn = procnamecfg(handler.loginexepath);
-                string charr = procnamecfg(handler.charexepath);
-                string mapp = procnamecfg(handler.mapexepath);
+                string loginn = procnamecfg(Handler.LoginExePath);
+                string charr = procnamecfg(Handler.CharExePath);
+                string mapp = procnamecfg(Handler.MapExePath);
                 Process cproc = ((Process)sender);
                 string switchval = cproc.ProcessName.ToLower();
 
@@ -277,7 +277,7 @@ namespace Server_Viewer
                         {
                             try
                             {
-                                if (handler.colorOLDREV)
+                                if (Handler.ColorOldRev)
                                 {
                                     string[] playercount = e.Data.Split(new Char[] { ':' });
                                     lb_users.Text = playercount[3];
@@ -294,51 +294,51 @@ namespace Server_Viewer
                             }
                         }
                         #endregion
-                        if (handler.colorMODE)
+                        if (Handler.ColorMode)
                         {
-                            if (!handler.colorOLDREV)
+                            if (!Handler.ColorOldRev)
                             {
                                 #region Color Text REV 16400+
                                 if (e.Data.Contains("[Status]"))
                                 {
-                                    handler.AppendText(RTBLogin, "[Status]", handler.Status);
+                                    Handler.AppendText(RTBLogin, "[Status]", Handler.Status);
                                     String OriEData = e.Data; String NewEData = OriEData.Remove(0, 8);
                                     RTBLogin.AppendText(NewEData + Environment.NewLine);
                                 }
                                 else if (e.Data.Contains("[Info]"))
                                 {
-                                    handler.AppendText(RTBLogin, "[Info]", handler.Info);
+                                    Handler.AppendText(RTBLogin, "[Info]", Handler.Info);
                                     String OriEData = e.Data; String NewEData = OriEData.Remove(0, 6);
                                     RTBLogin.AppendText(NewEData + Environment.NewLine);
                                 }
                                 else if (e.Data.Contains("[Notice]"))
                                 {
-                                    handler.AppendText(RTBLogin, "[Notice]", handler.Notice);
+                                    Handler.AppendText(RTBLogin, "[Notice]", Handler.Notice);
 
                                     String OriEData = e.Data; String NewEData = OriEData.Remove(0, 8);
                                     RTBLogin.AppendText(NewEData + Environment.NewLine);
                                 }
                                 else if (e.Data.Contains("[Warning]"))
                                 {
-                                    handler.AppendText(RTBLogin, "[Warning]", handler.Warning);
+                                    Handler.AppendText(RTBLogin, "[Warning]", Handler.Warning);
                                     String OriEData = e.Data; String NewEData = OriEData.Remove(0, 9);
                                     RTBLogin.AppendText(NewEData + Environment.NewLine);
                                 }
                                 else if (e.Data.Contains("[Error]"))
                                 {
-                                    handler.AppendText(RTBLogin, "[Error]", handler.Error);
+                                    Handler.AppendText(RTBLogin, "[Error]", Handler.Error);
                                     String OriEData = e.Data; String NewEData = OriEData.Remove(0, 7);
                                     RTBLogin.AppendText(NewEData + Environment.NewLine);
                                 }
                                 else if (e.Data.Contains("[SQL]"))
                                 {
-                                    handler.AppendText(RTBLogin, "[SQL]", handler.SQL);
+                                    Handler.AppendText(RTBLogin, "[SQL]", Handler.Sql);
                                     String OriEData = e.Data; String NewEData = OriEData.Remove(0, 5);
                                     RTBLogin.AppendText(NewEData + Environment.NewLine);
                                 }
                                 else if (e.Data.Contains("[Debug]"))
                                 {
-                                    handler.AppendText(RTBLogin, "[Debug]", handler.Debug);
+                                    Handler.AppendText(RTBLogin, "[Debug]", Handler.Debug);
                                     String OriEData = e.Data; String NewEData = OriEData.Remove(0, 7);
                                     RTBLogin.AppendText(NewEData + Environment.NewLine);
                                 }
@@ -356,12 +356,12 @@ namespace Server_Viewer
                                 {
                                     try
                                     {
-                                        handler.AppendText(RTBLogin, "[Status]", handler.Status);
+                                        Handler.AppendText(RTBLogin, "[Status]", Handler.Status);
                                         RTBLogin.AppendText(RTBLs[2] + Environment.NewLine);
                                     }
                                     catch
                                     {
-                                        handler.AppendText(RTBLogin, "[Status]", handler.Status);
+                                        Handler.AppendText(RTBLogin, "[Status]", Handler.Status);
                                         RTBLogin.AppendText(RTBLs[1] + Environment.NewLine);
                                     }
 
@@ -370,12 +370,12 @@ namespace Server_Viewer
                                 {
                                     try
                                     {
-                                        handler.AppendText(RTBLogin, "[Info]", handler.Info);
+                                        Handler.AppendText(RTBLogin, "[Info]", Handler.Info);
                                         RTBLogin.AppendText(RTBLs[2] + Environment.NewLine);
                                     }
                                     catch
                                     {
-                                        handler.AppendText(RTBLogin, "[Info]", handler.Info);
+                                        Handler.AppendText(RTBLogin, "[Info]", Handler.Info);
                                         RTBLogin.AppendText(RTBLs[1] + Environment.NewLine);
                                     }
 
@@ -384,12 +384,12 @@ namespace Server_Viewer
                                 {
                                     try
                                     {
-                                        handler.AppendText(RTBLogin, "[Notice]", handler.Notice);
+                                        Handler.AppendText(RTBLogin, "[Notice]", Handler.Notice);
                                         RTBLogin.AppendText(RTBLs[2] + Environment.NewLine);
                                     }
                                     catch
                                     {
-                                        handler.AppendText(RTBLogin, "[Notice]", handler.Notice);
+                                        Handler.AppendText(RTBLogin, "[Notice]", Handler.Notice);
                                         RTBLogin.AppendText(RTBLs[1] + Environment.NewLine);
                                     }
 
@@ -398,12 +398,12 @@ namespace Server_Viewer
                                 {
                                     try
                                     {
-                                        handler.AppendText(RTBLogin, "[Warning]", handler.Warning);
+                                        Handler.AppendText(RTBLogin, "[Warning]", Handler.Warning);
                                         RTBLogin.AppendText(RTBLs[2] + Environment.NewLine);
                                     }
                                     catch
                                     {
-                                        handler.AppendText(RTBLogin, "[Warning]", handler.Warning);
+                                        Handler.AppendText(RTBLogin, "[Warning]", Handler.Warning);
                                         RTBLogin.AppendText(RTBLs[1] + Environment.NewLine);
                                     }
 
@@ -412,12 +412,12 @@ namespace Server_Viewer
                                 {
                                     try
                                     {
-                                        handler.AppendText(RTBLogin, "[Error]", handler.Error);
+                                        Handler.AppendText(RTBLogin, "[Error]", Handler.Error);
                                         RTBLogin.AppendText(RTBLs[2] + Environment.NewLine);
                                     }
                                     catch
                                     {
-                                        handler.AppendText(RTBLogin, "[Error]", handler.Error);
+                                        Handler.AppendText(RTBLogin, "[Error]", Handler.Error);
                                         RTBLogin.AppendText(RTBLs[1] + Environment.NewLine);
                                     }
 
@@ -426,12 +426,12 @@ namespace Server_Viewer
                                 {
                                     try
                                     {
-                                        handler.AppendText(RTBLogin, "[SQL]", handler.SQL);
+                                        Handler.AppendText(RTBLogin, "[SQL]", Handler.Sql);
                                         RTBLogin.AppendText(RTBLs[2] + Environment.NewLine);
                                     }
                                     catch
                                     {
-                                        handler.AppendText(RTBLogin, "[SQL]", handler.SQL);
+                                        Handler.AppendText(RTBLogin, "[SQL]", Handler.Sql);
                                         RTBLogin.AppendText(RTBLs[1] + Environment.NewLine);
                                     }
 
@@ -440,12 +440,12 @@ namespace Server_Viewer
                                 {
                                     try
                                     {
-                                        handler.AppendText(RTBLogin, "[Debug]", handler.Debug);
+                                        Handler.AppendText(RTBLogin, "[Debug]", Handler.Debug);
                                         RTBLogin.AppendText(RTBLs[2] + Environment.NewLine);
                                     }
                                     catch
                                     {
-                                        handler.AppendText(RTBLogin, "[Debug]", handler.Debug);
+                                        Handler.AppendText(RTBLogin, "[Debug]", Handler.Debug);
                                         RTBLogin.AppendText(RTBLs[1] + Environment.NewLine);
                                     }
 
@@ -492,50 +492,50 @@ namespace Server_Viewer
                             lb_warnings.Text = "Warning: " + warnmsgs;
                         }
                         #endregion
-                        if (handler.colorMODE)
+                        if (Handler.ColorMode)
                         {
-                            if (!handler.colorOLDREV)
+                            if (!Handler.ColorOldRev)
                             {
                                 #region Color Text REV 16400+
                                 if (e.Data.Contains("[Status]"))
                                 {
-                                    handler.AppendText(RTBChar, "[Status]", handler.Status);
+                                    Handler.AppendText(RTBChar, "[Status]", Handler.Status);
                                     String OriEData = e.Data; String NewEData = OriEData.Remove(0, 8);
                                     RTBChar.AppendText(NewEData + Environment.NewLine);
                                 }
                                 else if (e.Data.Contains("[Info]"))
                                 {
-                                    handler.AppendText(RTBChar, "[Info]", handler.Info);
+                                    Handler.AppendText(RTBChar, "[Info]", Handler.Info);
                                     String OriEData = e.Data; String NewEData = OriEData.Remove(0, 6);
                                     RTBChar.AppendText(NewEData + Environment.NewLine);
                                 }
                                 else if (e.Data.Contains("[Notice]"))
                                 {
-                                    handler.AppendText(RTBChar, "[Notice]", handler.Notice);
+                                    Handler.AppendText(RTBChar, "[Notice]", Handler.Notice);
                                     String OriEData = e.Data; String NewEData = OriEData.Remove(0, 8);
                                     RTBChar.AppendText(NewEData + Environment.NewLine);
                                 }
                                 else if (e.Data.Contains("[Warning]"))
                                 {
-                                    handler.AppendText(RTBChar, "[Warning]", handler.Warning);
+                                    Handler.AppendText(RTBChar, "[Warning]", Handler.Warning);
                                     String OriEData = e.Data; String NewEData = OriEData.Remove(0, 9);
                                     RTBChar.AppendText(NewEData + Environment.NewLine);
                                 }
                                 else if (e.Data.Contains("[Error]"))
                                 {
-                                    handler.AppendText(RTBChar, "[Error]", handler.Error);
+                                    Handler.AppendText(RTBChar, "[Error]", Handler.Error);
                                     String OriEData = e.Data; String NewEData = OriEData.Remove(0, 7);
                                     RTBChar.AppendText(NewEData + Environment.NewLine);
                                 }
                                 else if (e.Data.Contains("[SQL]"))
                                 {
-                                    handler.AppendText(RTBChar, "[SQL]", handler.SQL);
+                                    Handler.AppendText(RTBChar, "[SQL]", Handler.Sql);
                                     String OriEData = e.Data; String NewEData = OriEData.Remove(0, 5);
                                     RTBChar.AppendText(NewEData + Environment.NewLine);
                                 }
                                 else if (e.Data.Contains("[Debug]"))
                                 {
-                                    handler.AppendText(RTBChar, "[Debug]", handler.Debug);
+                                    Handler.AppendText(RTBChar, "[Debug]", Handler.Debug);
                                     String OriEData = e.Data; String NewEData = OriEData.Remove(0, 7);
                                     RTBChar.AppendText(NewEData + Environment.NewLine);
                                 }
@@ -553,12 +553,12 @@ namespace Server_Viewer
                                 {
                                     try
                                     {
-                                        handler.AppendText(RTBChar, "[Status]", handler.Status);
+                                        Handler.AppendText(RTBChar, "[Status]", Handler.Status);
                                         RTBChar.AppendText(RTBCs[2] + Environment.NewLine);
                                     }
                                     catch
                                     {
-                                        handler.AppendText(RTBChar, "[Status]", handler.Status);
+                                        Handler.AppendText(RTBChar, "[Status]", Handler.Status);
                                         RTBChar.AppendText(RTBCs[1] + Environment.NewLine);
                                     }
 
@@ -567,12 +567,12 @@ namespace Server_Viewer
                                 {
                                     try
                                     {
-                                        handler.AppendText(RTBChar, "[Info]", handler.Info);
+                                        Handler.AppendText(RTBChar, "[Info]", Handler.Info);
                                         RTBChar.AppendText(RTBCs[2] + Environment.NewLine);
                                     }
                                     catch
                                     {
-                                        handler.AppendText(RTBChar, "[Info]", handler.Info);
+                                        Handler.AppendText(RTBChar, "[Info]", Handler.Info);
                                         RTBChar.AppendText(RTBCs[1] + Environment.NewLine);
                                     }
 
@@ -581,12 +581,12 @@ namespace Server_Viewer
                                 {
                                     try
                                     {
-                                        handler.AppendText(RTBChar, "[Notice]", handler.Notice);
+                                        Handler.AppendText(RTBChar, "[Notice]", Handler.Notice);
                                         RTBChar.AppendText(RTBCs[2] + Environment.NewLine);
                                     }
                                     catch
                                     {
-                                        handler.AppendText(RTBChar, "[Notice]", handler.Notice);
+                                        Handler.AppendText(RTBChar, "[Notice]", Handler.Notice);
                                         RTBChar.AppendText(RTBCs[1] + Environment.NewLine);
                                     }
 
@@ -595,12 +595,12 @@ namespace Server_Viewer
                                 {
                                     try
                                     {
-                                        handler.AppendText(RTBChar, "[Warning]", handler.Warning);
+                                        Handler.AppendText(RTBChar, "[Warning]", Handler.Warning);
                                         RTBChar.AppendText(RTBCs[2] + Environment.NewLine);
                                     }
                                     catch
                                     {
-                                        handler.AppendText(RTBChar, "[Warning]", handler.Warning);
+                                        Handler.AppendText(RTBChar, "[Warning]", Handler.Warning);
                                         RTBChar.AppendText(RTBCs[1] + Environment.NewLine);
                                     }
 
@@ -609,12 +609,12 @@ namespace Server_Viewer
                                 {
                                     try
                                     {
-                                        handler.AppendText(RTBChar, "[Error]", handler.Error);
+                                        Handler.AppendText(RTBChar, "[Error]", Handler.Error);
                                         RTBChar.AppendText(RTBCs[2] + Environment.NewLine);
                                     }
                                     catch
                                     {
-                                        handler.AppendText(RTBChar, "[Error]", handler.Error);
+                                        Handler.AppendText(RTBChar, "[Error]", Handler.Error);
                                         RTBChar.AppendText(RTBCs[1] + Environment.NewLine);
                                     }
 
@@ -623,12 +623,12 @@ namespace Server_Viewer
                                 {
                                     try
                                     {
-                                        handler.AppendText(RTBChar, "[SQL]", handler.SQL);
+                                        Handler.AppendText(RTBChar, "[SQL]", Handler.Sql);
                                         RTBChar.AppendText(RTBCs[2] + Environment.NewLine);
                                     }
                                     catch
                                     {
-                                        handler.AppendText(RTBChar, "[SQL]", handler.SQL);
+                                        Handler.AppendText(RTBChar, "[SQL]", Handler.Sql);
                                         RTBChar.AppendText(RTBCs[1] + Environment.NewLine);
                                     }
 
@@ -637,12 +637,12 @@ namespace Server_Viewer
                                 {
                                     try
                                     {
-                                        handler.AppendText(RTBChar, "[Debug]", handler.Debug);
+                                        Handler.AppendText(RTBChar, "[Debug]", Handler.Debug);
                                         RTBChar.AppendText(RTBCs[2] + Environment.NewLine);
                                     }
                                     catch
                                     {
-                                        handler.AppendText(RTBChar, "[Debug]", handler.Debug);
+                                        Handler.AppendText(RTBChar, "[Debug]", Handler.Debug);
                                         RTBChar.AppendText(RTBCs[1] + Environment.NewLine);
                                     }
 
@@ -689,48 +689,48 @@ namespace Server_Viewer
                             lb_warnings.Text = "Warning: " + warnmsgs;
                         }
                         #endregion
-                        if (handler.colorMODE)
+                        if (Handler.ColorMode)
                         {
                             #region color text
                             if (e.Data.Contains("[Status]"))
                             {
-                                handler.AppendText(RTBMap, "[Status]", handler.Status);
+                                Handler.AppendText(RTBMap, "[Status]", Handler.Status);
                                 String OriEData = e.Data; String NewEData = OriEData.Remove(0, 8);
                                 RTBMap.AppendText(NewEData + Environment.NewLine);
                             }
                             else if (e.Data.Contains("[Info]"))
                             {
-                                handler.AppendText(RTBMap, "[Info]", handler.Info);
+                                Handler.AppendText(RTBMap, "[Info]", Handler.Info);
                                 String OriEData = e.Data; String NewEData = OriEData.Remove(0, 6);
                                 RTBMap.AppendText(NewEData + Environment.NewLine);
                             }
                             else if (e.Data.Contains("[Notice]"))
                             {
-                                handler.AppendText(RTBMap, "[Notice]", handler.Notice);
+                                Handler.AppendText(RTBMap, "[Notice]", Handler.Notice);
                                 String OriEData = e.Data; String NewEData = OriEData.Remove(0, 8);
                                 RTBMap.AppendText(NewEData + Environment.NewLine);
                             }
                             else if (e.Data.Contains("[Warning]"))
                             {
-                                handler.AppendText(RTBMap, "[Warning]", handler.Warning);
+                                Handler.AppendText(RTBMap, "[Warning]", Handler.Warning);
                                 String OriEData = e.Data; String NewEData = OriEData.Remove(0, 9);
                                 RTBMap.AppendText(NewEData + Environment.NewLine);
                             }
                             else if (e.Data.Contains("[Error]"))
                             {
-                                handler.AppendText(RTBMap, "[Error]", handler.Error);
+                                Handler.AppendText(RTBMap, "[Error]", Handler.Error);
                                 String OriEData = e.Data; String NewEData = OriEData.Remove(0, 7);
                                 RTBMap.AppendText(NewEData + Environment.NewLine);
                             }
                             else if (e.Data.Contains("[SQL]"))
                             {
-                                handler.AppendText(RTBMap, "[SQL]", handler.SQL);
+                                Handler.AppendText(RTBMap, "[SQL]", Handler.Sql);
                                 String OriEData = e.Data; String NewEData = OriEData.Remove(0, 5);
                                 RTBMap.AppendText(NewEData + Environment.NewLine);
                             }
                             else if (e.Data.Contains("[Debug]"))
                             {
-                                handler.AppendText(RTBMap, "[Debug]", handler.Debug);
+                                Handler.AppendText(RTBMap, "[Debug]", Handler.Debug);
                                 String OriEData = e.Data; String NewEData = OriEData.Remove(0, 7);
                                 RTBMap.AppendText(NewEData + Environment.NewLine);
                             }
@@ -753,9 +753,9 @@ namespace Server_Viewer
         #region close smalli
         private void main_FormClosed(object sender, FormClosedEventArgs e)
         {
-            KillAll(procnamecfg(handler.loginexepath));
-            KillAll(procnamecfg(handler.charexepath));
-            KillAll(procnamecfg(handler.mapexepath));
+            KillAll(procnamecfg(Handler.LoginExePath));
+            KillAll(procnamecfg(Handler.CharExePath));
+            KillAll(procnamecfg(Handler.MapExePath));
         }
 
         private void RTBLogin_TextChanged(object sender, EventArgs e)
@@ -776,16 +776,16 @@ namespace Server_Viewer
         private void option_Click(object sender, EventArgs e)
         {
             frm_option frm_opt = new frm_option();
-            if (!handler.openopt)
+            if (!Handler.OpenOpt)
             {
                 frm_opt.Show();
-                handler.openopt = true;
+                Handler.OpenOpt = true;
             }
             else
             {
                 //int hwnd = frm_opt.Handle.ToInt32();
                 //SetForegroundWindow(hwnd);
-                handler.SetForegroundWindowEx(frm_opt);
+                Handler.SetForegroundWindowEx(frm_opt);
             }
         }
 
@@ -887,9 +887,9 @@ namespace Server_Viewer
                 lb_error.Text = "Error: " + errormsgs;
                 lb_users.Text = "" + playermsgs;
                 lb_warnings.Text = "Warning: " + warnmsgs;
-                KillAll(procnamecfg(handler.loginexepath));
-                KillAll(procnamecfg(handler.charexepath));
-                KillAll(procnamecfg(handler.mapexepath));
+                KillAll(procnamecfg(Handler.LoginExePath));
+                KillAll(procnamecfg(Handler.CharExePath));
+                KillAll(procnamecfg(Handler.MapExePath));
             }
             else
             {
@@ -899,9 +899,9 @@ namespace Server_Viewer
                 {
                     try
                     {
-                        KillAll(procnamecfg(handler.loginexepath));
-                        KillAll(procnamecfg(handler.charexepath));
-                        KillAll(procnamecfg(handler.mapexepath));
+                        KillAll(procnamecfg(Handler.LoginExePath));
+                        KillAll(procnamecfg(Handler.CharExePath));
+                        KillAll(procnamecfg(Handler.MapExePath));
                     }
                     catch
                     {
@@ -910,9 +910,9 @@ namespace Server_Viewer
                     RTBLogin.Clear();
                     RTBChar.Clear();
                     RTBMap.Clear();
-                    RunWithRedirect(handler.loginexepath);
-                    RunWithRedirect(handler.charexepath);
-                    RunWithRedirect(handler.mapexepath);
+                    RunWithRedirect(Handler.LoginExePath);
+                    RunWithRedirect(Handler.CharExePath);
+                    RunWithRedirect(Handler.MapExePath);
                 }
                 catch (Exception err)
                 {
@@ -929,14 +929,14 @@ namespace Server_Viewer
         private void tc_about_Click(object sender, EventArgs e)
         {
             frm_about frm_abt = new frm_about();
-            if (!handler.openabt)
+            if (!Handler.OpenAbt)
             {
                 frm_abt.Show();
-                handler.openabt = true;
+                Handler.OpenAbt = true;
             }
             else
             {
-                handler.SetForegroundWindowEx(frm_abt);
+                Handler.SetForegroundWindowEx(frm_abt);
             }
             
         }
@@ -944,22 +944,17 @@ namespace Server_Viewer
         private void tc_options_Click(object sender, EventArgs e)
         {
             frm_option frm_opt = new frm_option();
-            if (!handler.openopt)
+            if (!Handler.OpenOpt)
             {
                 frm_opt.Show();
-                handler.openopt = true;
+                Handler.OpenOpt = true;
             }
             else
             {
-                handler.SetForegroundWindowEx(frm_opt);
+                Handler.SetForegroundWindowEx(frm_opt);
             }
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-            easteregg egg = new easteregg();
-            egg.Show();
-        }
 
         private void button2_Click(object sender, EventArgs e)
         {

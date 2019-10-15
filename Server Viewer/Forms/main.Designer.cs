@@ -60,7 +60,6 @@
             this.tc_debug = new System.Windows.Forms.ToolStripMenuItem();
             this.tc_about = new System.Windows.Forms.ToolStripMenuItem();
             this.tc_exit = new System.Windows.Forms.ToolStripMenuItem();
-            this.label2 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.panel.SuspendLayout();
             this.traycon.SuspendLayout();
@@ -256,31 +255,31 @@
             this.tc_about,
             this.tc_exit});
             this.traycon.Name = "traycon";
-            this.traycon.Size = new System.Drawing.Size(153, 164);
+            this.traycon.Size = new System.Drawing.Size(138, 142);
             // 
             // tc_restore
             // 
             this.tc_restore.Name = "tc_restore";
-            this.tc_restore.Size = new System.Drawing.Size(152, 22);
+            this.tc_restore.Size = new System.Drawing.Size(137, 22);
             this.tc_restore.Text = "Restore";
             this.tc_restore.Click += new System.EventHandler(this.tc_restore_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(134, 6);
             // 
             // tc_startstop
             // 
             this.tc_startstop.Name = "tc_startstop";
-            this.tc_startstop.Size = new System.Drawing.Size(152, 22);
+            this.tc_startstop.Size = new System.Drawing.Size(137, 22);
             this.tc_startstop.Text = "Control";
             this.tc_startstop.Click += new System.EventHandler(this.tc_startstop_Click);
             // 
             // tc_options
             // 
             this.tc_options.Name = "tc_options";
-            this.tc_options.Size = new System.Drawing.Size(152, 22);
+            this.tc_options.Size = new System.Drawing.Size(137, 22);
             this.tc_options.Text = "Options";
             this.tc_options.Click += new System.EventHandler(this.tc_options_Click);
             // 
@@ -294,7 +293,7 @@
             this.tc_sql,
             this.tc_debug});
             this.tc_info.Name = "tc_info";
-            this.tc_info.Size = new System.Drawing.Size(152, 22);
+            this.tc_info.Size = new System.Drawing.Size(137, 22);
             this.tc_info.Text = "Information";
             // 
             // tc_player
@@ -335,28 +334,16 @@
             // tc_about
             // 
             this.tc_about.Name = "tc_about";
-            this.tc_about.Size = new System.Drawing.Size(152, 22);
+            this.tc_about.Size = new System.Drawing.Size(137, 22);
             this.tc_about.Text = "About";
             this.tc_about.Click += new System.EventHandler(this.tc_about_Click);
             // 
             // tc_exit
             // 
             this.tc_exit.Name = "tc_exit";
-            this.tc_exit.Size = new System.Drawing.Size(152, 22);
+            this.tc_exit.Size = new System.Drawing.Size(137, 22);
             this.tc_exit.Text = "Exit";
             this.tc_exit.Click += new System.EventHandler(this.tc_exit_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Salmon;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 1.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(196, 262);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(3, 2);
-            this.label2.TabIndex = 47;
-            this.label2.Text = " ";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // button2
             // 
@@ -380,7 +367,6 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(750, 580);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.panel);
             this.Controls.Add(this.lb_minimaze);
             this.Controls.Add(this.label1);
@@ -443,7 +429,6 @@
         private System.Windows.Forms.ToolStripMenuItem tc_player;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem tc_exit;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button2;
 
     }
