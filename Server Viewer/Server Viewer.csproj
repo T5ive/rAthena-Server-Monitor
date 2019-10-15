@@ -69,45 +69,44 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class\INIDatei.cs" />
-    <Compile Include="Class\WriteTXT.cs" />
-    <Compile Include="Forms\frm_about.cs">
+    <Compile Include="Forms\FrmAbout.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frm_about.Designer.cs">
-      <DependentUpon>frm_about.cs</DependentUpon>
+    <Compile Include="Forms\FrmAbout.Designer.cs">
+      <DependentUpon>FrmAbout.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frm_errorlog.cs">
+    <Compile Include="Forms\FrmLog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frm_errorlog.Designer.cs">
-      <DependentUpon>frm_errorlog.cs</DependentUpon>
+    <Compile Include="Forms\FrmLog.Designer.cs">
+      <DependentUpon>FrmLog.cs</DependentUpon>
     </Compile>
     <Compile Include="Handler.cs" />
-    <Compile Include="Forms\main.cs">
+    <Compile Include="Forms\FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\main.Designer.cs">
-      <DependentUpon>main.cs</DependentUpon>
+    <Compile Include="Forms\FrmMain.Designer.cs">
+      <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frm_option.cs">
+    <Compile Include="Forms\FrmOption.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frm_option.Designer.cs">
-      <DependentUpon>frm_option.cs</DependentUpon>
+    <Compile Include="Forms\FrmOption.Designer.cs">
+      <DependentUpon>FrmOption.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\frm_about.resx">
-      <DependentUpon>frm_about.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FrmAbout.resx">
+      <DependentUpon>FrmAbout.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frm_errorlog.resx">
-      <DependentUpon>frm_errorlog.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FrmLog.resx">
+      <DependentUpon>FrmLog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\main.resx">
-      <DependentUpon>main.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FrmMain.resx">
+      <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frm_option.resx">
-      <DependentUpon>frm_option.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FrmOption.resx">
+      <DependentUpon>FrmOption.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

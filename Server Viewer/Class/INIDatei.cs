@@ -1,15 +1,14 @@
-﻿using System;
-using System.Runtime.InteropServices;
+﻿using System.Runtime.InteropServices;
 using System.Text;
 
-namespace Ini
+namespace Server_Viewer.Class
 {
     /// <summary>
     /// Create a New INI file to store or load data
     /// </summary>
     public class IniFile
     {
-        public string path;
+        public string Path;
 
         [DllImport("kernel32")]
         private static extern long WritePrivateProfileString(string section,
@@ -25,7 +24,7 @@ namespace Ini
         /// <PARAM name="INIPath"></PARAM>
         public IniFile(string INIPath)
         {
-            path = INIPath;
+            Path = INIPath;
         }
         /// <summary>
         /// Write Data to the INI File
@@ -38,7 +37,7 @@ namespace Ini
         /// Value Name
         public void IniWriteValue(string Section, string Key, string Value)
         {
-            WritePrivateProfileString(Section, Key, Value, this.path);
+            WritePrivateProfileString(Section, Key, Value, this.Path);
         }
 
         /// <summary>
@@ -52,7 +51,7 @@ namespace Ini
         {
             StringBuilder temp = new StringBuilder(255);
             int i = GetPrivateProfileString(Section, Key, "", temp,
-                                            255, this.path);
+                                            255, this.Path);
             return temp.ToString();
 
         }
