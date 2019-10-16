@@ -35,7 +35,6 @@
             this.lbError = new System.Windows.Forms.Label();
             this.lbSql = new System.Windows.Forms.Label();
             this.lbDebug = new System.Windows.Forms.Label();
-            this.btnStop = new System.Windows.Forms.Button();
             this.btnStart = new System.Windows.Forms.Button();
             this.LoginLog = new System.Windows.Forms.RichTextBox();
             this.CharLog = new System.Windows.Forms.RichTextBox();
@@ -60,7 +59,7 @@
             this.tcDebug = new System.Windows.Forms.ToolStripMenuItem();
             this.tcAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.tcExit = new System.Windows.Forms.ToolStripMenuItem();
-            this.btLog = new System.Windows.Forms.Button();
+            this.btnError = new System.Windows.Forms.Button();
             this.panelUser.SuspendLayout();
             this.traycon.SuspendLayout();
             this.SuspendLayout();
@@ -127,30 +126,19 @@
             this.lbDebug.Text = "Debug:";
             this.lbDebug.TextChanged += new System.EventHandler(this.lbDebug_TextChanged);
             // 
-            // btnStop
-            // 
-            this.btnStop.FlatAppearance.BorderColor = System.Drawing.Color.ForestGreen;
-            this.btnStop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnStop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStop.Image = ((System.Drawing.Image)(resources.GetObject("btnStop.Image")));
-            this.btnStop.Location = new System.Drawing.Point(29, 467);
-            this.btnStop.Name = "btnStop";
-            this.btnStop.Size = new System.Drawing.Size(120, 40);
-            this.btnStop.TabIndex = 35;
-            this.btnStop.UseVisualStyleBackColor = true;
-            this.btnStop.Click += new System.EventHandler(this.BtnRunServer);
-            // 
             // btnStart
             // 
+            this.btnStart.BackColor = System.Drawing.Color.YellowGreen;
             this.btnStart.FlatAppearance.BorderColor = System.Drawing.Color.ForestGreen;
             this.btnStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStart.Image = ((System.Drawing.Image)(resources.GetObject("btnStart.Image")));
-            this.btnStart.Location = new System.Drawing.Point(85, 421);
+            this.btnStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStart.ForeColor = System.Drawing.Color.DarkGreen;
+            this.btnStart.Location = new System.Drawing.Point(28, 467);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(120, 40);
             this.btnStart.TabIndex = 34;
-            this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.Text = "Start";
+            this.btnStart.UseVisualStyleBackColor = false;
             this.btnStart.Click += new System.EventHandler(this.BtnRunServer);
             // 
             // LoginLog
@@ -194,15 +182,17 @@
             // 
             // btnOption
             // 
+            this.btnOption.BackColor = System.Drawing.Color.YellowGreen;
             this.btnOption.FlatAppearance.BorderColor = System.Drawing.Color.ForestGreen;
             this.btnOption.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOption.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOption.Image = ((System.Drawing.Image)(resources.GetObject("btnOption.Image")));
+            this.btnOption.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOption.ForeColor = System.Drawing.Color.DarkGreen;
             this.btnOption.Location = new System.Drawing.Point(85, 513);
             this.btnOption.Name = "btnOption";
             this.btnOption.Size = new System.Drawing.Size(120, 40);
             this.btnOption.TabIndex = 42;
-            this.btnOption.UseVisualStyleBackColor = true;
+            this.btnOption.Text = "Option";
+            this.btnOption.UseVisualStyleBackColor = false;
             this.btnOption.Click += new System.EventHandler(this.btnOption_Click);
             // 
             // lbClose
@@ -267,31 +257,31 @@
             this.tcAbout,
             this.tcExit});
             this.traycon.Name = "traycon";
-            this.traycon.Size = new System.Drawing.Size(181, 164);
+            this.traycon.Size = new System.Drawing.Size(138, 142);
             // 
             // tcRestore
             // 
             this.tcRestore.Name = "tcRestore";
-            this.tcRestore.Size = new System.Drawing.Size(180, 22);
+            this.tcRestore.Size = new System.Drawing.Size(137, 22);
             this.tcRestore.Text = "Restore";
             this.tcRestore.Click += new System.EventHandler(this.tcRestore_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(134, 6);
             // 
             // tcControl
             // 
             this.tcControl.Name = "tcControl";
-            this.tcControl.Size = new System.Drawing.Size(180, 22);
+            this.tcControl.Size = new System.Drawing.Size(137, 22);
             this.tcControl.Text = "Start";
             this.tcControl.Click += new System.EventHandler(this.tcControl_Click);
             // 
             // tcOptions
             // 
             this.tcOptions.Name = "tcOptions";
-            this.tcOptions.Size = new System.Drawing.Size(180, 22);
+            this.tcOptions.Size = new System.Drawing.Size(137, 22);
             this.tcOptions.Text = "Options";
             this.tcOptions.Click += new System.EventHandler(this.tc_options_Click);
             // 
@@ -305,7 +295,7 @@
             this.tcSql,
             this.tcDebug});
             this.tcInfo.Name = "tcInfo";
-            this.tcInfo.Size = new System.Drawing.Size(180, 22);
+            this.tcInfo.Size = new System.Drawing.Size(137, 22);
             this.tcInfo.Text = "Information";
             // 
             // tcPlayer
@@ -346,31 +336,31 @@
             // tcAbout
             // 
             this.tcAbout.Name = "tcAbout";
-            this.tcAbout.Size = new System.Drawing.Size(180, 22);
+            this.tcAbout.Size = new System.Drawing.Size(137, 22);
             this.tcAbout.Text = "About";
             this.tcAbout.Click += new System.EventHandler(this.tcAbout_Click);
             // 
             // tcExit
             // 
             this.tcExit.Name = "tcExit";
-            this.tcExit.Size = new System.Drawing.Size(180, 22);
+            this.tcExit.Size = new System.Drawing.Size(137, 22);
             this.tcExit.Text = "Exit";
             this.tcExit.Click += new System.EventHandler(this.tcExit_Click);
             // 
-            // btLog
+            // btnError
             // 
-            this.btLog.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(191)))), ((int)(((byte)(62)))));
-            this.btLog.FlatAppearance.BorderSize = 0;
-            this.btLog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.25F);
-            this.btLog.ForeColor = System.Drawing.Color.White;
-            this.btLog.Location = new System.Drawing.Point(638, 99);
-            this.btLog.Name = "btLog";
-            this.btLog.Size = new System.Drawing.Size(85, 22);
-            this.btLog.TabIndex = 49;
-            this.btLog.Text = "Error Log";
-            this.btLog.UseVisualStyleBackColor = false;
-            this.btLog.Click += new System.EventHandler(this.btLog_Click);
+            this.btnError.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(191)))), ((int)(((byte)(62)))));
+            this.btnError.FlatAppearance.BorderColor = System.Drawing.Color.ForestGreen;
+            this.btnError.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnError.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.btnError.ForeColor = System.Drawing.Color.White;
+            this.btnError.Location = new System.Drawing.Point(646, 99);
+            this.btnError.Name = "btnError";
+            this.btnError.Size = new System.Drawing.Size(77, 22);
+            this.btnError.TabIndex = 49;
+            this.btnError.Text = "Error Log";
+            this.btnError.UseVisualStyleBackColor = false;
+            this.btnError.Click += new System.EventHandler(this.btnError_Click);
             // 
             // FrmMain
             // 
@@ -380,7 +370,7 @@
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(750, 580);
-            this.Controls.Add(this.btLog);
+            this.Controls.Add(this.btnError);
             this.Controls.Add(this.panelUser);
             this.Controls.Add(this.lbMinimize);
             this.Controls.Add(this.lbVersion);
@@ -389,7 +379,6 @@
             this.Controls.Add(this.MapLog);
             this.Controls.Add(this.CharLog);
             this.Controls.Add(this.LoginLog);
-            this.Controls.Add(this.btnStop);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.lbWarning);
             this.Controls.Add(this.lbError);
@@ -419,7 +408,6 @@
         private System.Windows.Forms.Label lbError;
         private System.Windows.Forms.Label lbSql;
         private System.Windows.Forms.Label lbDebug;
-        private System.Windows.Forms.Button btnStop;
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.RichTextBox LoginLog;
         private System.Windows.Forms.RichTextBox CharLog;
@@ -444,7 +432,7 @@
         private System.Windows.Forms.ToolStripMenuItem tcPlayer;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem tcExit;
-        private System.Windows.Forms.Button btLog;
+        private System.Windows.Forms.Button btnError;
     }
 }
 

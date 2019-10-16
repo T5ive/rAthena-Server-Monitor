@@ -109,13 +109,17 @@
             // 
             // btnOk
             // 
-            this.btnOk.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnOk.BackgroundImage")));
+            this.btnOk.BackColor = System.Drawing.Color.YellowGreen;
+            this.btnOk.FlatAppearance.BorderColor = System.Drawing.Color.ForestGreen;
             this.btnOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.btnOk.ForeColor = System.Drawing.Color.DarkGreen;
             this.btnOk.Location = new System.Drawing.Point(9, 256);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(152, 40);
             this.btnOk.TabIndex = 0;
-            this.btnOk.UseVisualStyleBackColor = true;
+            this.btnOk.Text = "OK";
+            this.btnOk.UseVisualStyleBackColor = false;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
             // lbLogin
@@ -150,19 +154,22 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCancel.BackgroundImage")));
+            this.btnCancel.BackColor = System.Drawing.Color.YellowGreen;
+            this.btnCancel.FlatAppearance.BorderColor = System.Drawing.Color.ForestGreen;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.btnCancel.ForeColor = System.Drawing.Color.DarkGreen;
             this.btnCancel.Location = new System.Drawing.Point(170, 256);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(153, 40);
             this.btnCancel.TabIndex = 10;
-            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("groupBox1.BackgroundImage")));
+            this.groupBox1.BackColor = System.Drawing.Color.OliveDrab;
             this.groupBox1.Controls.Add(this.lbDebug);
             this.groupBox1.Controls.Add(this.lbSql);
             this.groupBox1.Controls.Add(this.lbNotice);
@@ -286,7 +293,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackColor = System.Drawing.Color.YellowGreen;
             this.ClientSize = new System.Drawing.Size(335, 308);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnCancel);

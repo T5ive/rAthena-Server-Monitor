@@ -1,11 +1,11 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Server_Viewer.Forms
 {
     public partial class FrmLog : Form
     {
-       
         public FrmLog()
         {
             InitializeComponent();
@@ -14,7 +14,5 @@ namespace Server_Viewer.Forms
         {
             txtLog.Text = FrmMain.ErrorLog;
         }
-
-        
     }
 }

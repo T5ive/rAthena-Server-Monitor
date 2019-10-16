@@ -1,0 +1,12 @@
+D:\Github\rAthena-Server-Monitor\Server Viewer\bin\Release\Server Monitor.exe.config
+D:\Github\rAthena-Server-Monitor\Server Viewer\bin\Release\Server Monitor.exe
+D:\Github\rAthena-Server-Monitor\Server Viewer\bin\Release\Server Monitor.pdb
+D:\Github\rAthena-Server-Monitor\Server Viewer\obj\x86\Release\Server Viewer.csprojAssemblyReference.cache
+D:\Github\rAthena-Server-Monitor\Server Viewer\obj\x86\Release\Server_Viewer.Forms.FrmAbout.resources
+D:\Github\rAthena-Server-Monitor\Server Viewer\obj\x86\Release\Server_Viewer.Forms.FrmLog.resources
+D:\Github\rAthena-Server-Monitor\Server Viewer\obj\x86\Release\Server_Viewer.Forms.FrmMain.resources
+D:\Github\rAthena-Server-Monitor\Server Viewer\obj\x86\Release\Server_Viewer.Forms.FrmOption.resources
+D:\Github\rAthena-Server-Monitor\Server Viewer\obj\x86\Release\Server_Viewer.Properties.Resources.resources
+D:\Github\rAthena-Server-Monitor\Server Viewer\obj\x86\Release\Server Viewer.csproj.GenerateResource.cache
+D:\Github\rAthena-Server-Monitor\Server Viewer\obj\x86\Release\Server Monitor.exe
+D:\Github\rAthena-Server-Monitor\Server Viewer\obj\x86\Release\Server Monitor.pdb

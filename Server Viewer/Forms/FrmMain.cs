@@ -106,12 +106,13 @@ namespace Server_Viewer.Forms
             Option();
         }
 
-        private void btLog_Click(object sender, EventArgs e)
+        private void btnError_Click(object sender, EventArgs e)
         {
             var frmLog = new FrmLog();
             frmLog.ShowDialog();
             frmLog.Dispose();
         }
+
 
         #endregion Button
 
@@ -119,6 +120,19 @@ namespace Server_Viewer.Forms
 
         private void RunServer()
         {
+            if (!File.Exists(Handler.LoginExePath))
+            {
+                MessageBox.Show(@"File ""login-server.exe"" is missing!!", @"Server Monitor", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            if (!File.Exists(Handler.CharExePath))
+            {
+                MessageBox.Show(@"File ""char-server.exe"" is missing!!", @"Server Monitor", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            if (!File.Exists(Handler.MapExePath))
+            {
+                MessageBox.Show(@"File ""map-server.exe"" is missing!!", @"Server Monitor", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
             if (!_onOff)
             {
                 _onOff = true;
@@ -141,6 +155,8 @@ namespace Server_Viewer.Forms
                     RunWithRedirect(Handler.LoginExePath);
                     RunWithRedirect(Handler.CharExePath);
                     RunWithRedirect(Handler.MapExePath);
+                    btnStart.Text = @"Stop";
+                    tcControl.Text = @"Stop";
                 }
                 catch (Exception err)
                 {
@@ -150,6 +166,8 @@ namespace Server_Viewer.Forms
             else
             {
                 _onOff = false;
+                btnStart.Text = @"Start";
+                tcControl.Text = @"Start";
                 _debugMsg = 0;
                 _sqlMsg = 0;
                 _errorMsg = 0;
@@ -165,7 +183,6 @@ namespace Server_Viewer.Forms
                 KillProcess(ProcNameCfg(Handler.MapExePath));
             }
 
-            tcControl.Text = _onOff ? "Stop" : "Start";
         }
 
         private void Option()
@@ -320,6 +337,7 @@ namespace Server_Viewer.Forms
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message + "\n\n" + ex.StackTrace);
+                RunServer();
             }
         }
 
@@ -876,5 +894,7 @@ namespace Server_Viewer.Forms
         }
 
         #endregion Server Manager
+
+        
     }
 }

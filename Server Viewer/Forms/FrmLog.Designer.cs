@@ -29,37 +29,40 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLog));
-            this.txtLog = new System.Windows.Forms.TextBox();
+            this.txtLog = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // txtLog
             // 
+            this.txtLog.BackColor = System.Drawing.SystemColors.ControlText;
             this.txtLog.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLog.ForeColor = System.Drawing.Color.Gainsboro;
             this.txtLog.Location = new System.Drawing.Point(0, 0);
-            this.txtLog.Multiline = true;
             this.txtLog.Name = "txtLog";
             this.txtLog.ReadOnly = true;
-            this.txtLog.Size = new System.Drawing.Size(537, 313);
-            this.txtLog.TabIndex = 2;
+            this.txtLog.Size = new System.Drawing.Size(764, 321);
+            this.txtLog.TabIndex = 40;
+            this.txtLog.Text = "";
             // 
             // FrmLog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(537, 313);
+            this.ClientSize = new System.Drawing.Size(764, 321);
             this.Controls.Add(this.txtLog);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FrmLog";
-            this.Text = "Error Log";
+            this.Text = "Log";
             this.Load += new System.EventHandler(this.FrmLog_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.TextBox txtLog;
+
+        private System.Windows.Forms.RichTextBox txtLog;
     }
 }
