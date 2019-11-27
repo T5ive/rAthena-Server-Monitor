@@ -6,13 +6,14 @@ namespace Server_Viewer.Forms
 {
     public partial class FrmLog : Form
     {
+        public string Value;
         public FrmLog()
         {
             InitializeComponent();
         }
         private void FrmLog_Load(object sender, EventArgs e)
         {
-            txtLog.Text = FrmMain.ErrorLog;
+            txtLog.Text = Value;
         }
     }
 }

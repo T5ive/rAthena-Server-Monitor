@@ -16,6 +16,7 @@ namespace Server_Viewer.Forms
         #region Variable
 
         public static string ErrorLog;
+        public static string WarningLog;
 
         private static bool _onOff;
         private static bool _trayMsg;
@@ -108,11 +109,17 @@ namespace Server_Viewer.Forms
 
         private void btnError_Click(object sender, EventArgs e)
         {
-            var frmLog = new FrmLog();
+            var frmLog = new FrmLog {Text = @"Error Log", Value = ErrorLog};
             frmLog.ShowDialog();
             frmLog.Dispose();
         }
 
+        private void btnWarning_Click(object sender, EventArgs e)
+        {
+            var frmLog = new FrmLog {Text = @"Warning Log", Value = WarningLog};
+            frmLog.ShowDialog();
+            frmLog.Dispose();
+        }
 
         #endregion Button
 
@@ -173,6 +180,8 @@ namespace Server_Viewer.Forms
                 _errorMsg = 0;
                 _warnMsg = 0;
                 _playerMsg = 0;
+                ErrorLog = string.Empty;
+                WarningLog = string.Empty;
                 lbDebug.Text = @"Debug: " + _debugMsg;
                 lbSql.Text = @"SQL: " + _sqlMsg;
                 lbError.Text = @"Error: " + _errorMsg;
@@ -402,6 +411,7 @@ namespace Server_Viewer.Forms
                         {
                             _warnMsg = _warnMsg + 1;
                             lbWarning.Text = @"Warning: " + _warnMsg;
+                            WarningLog += "[Login][" + Convert.ToString(DateTime.Now.TimeOfDay.Hours + ":" + DateTime.Now.TimeOfDay.Minutes) + "] " + e.Data + Environment.NewLine;
                         }
                         else if (e.Data.Contains("set users"))
                         {
@@ -625,6 +635,7 @@ namespace Server_Viewer.Forms
                         {
                             _warnMsg = _warnMsg + 1;
                             lbWarning.Text = @"Warning: " + _warnMsg;
+                            WarningLog += "[Login][" + Convert.ToString(DateTime.Now.TimeOfDay.Hours + ":" + DateTime.Now.TimeOfDay.Minutes) + "] " + e.Data + Environment.NewLine;
                         }
 
                         #endregion information
@@ -827,6 +838,7 @@ namespace Server_Viewer.Forms
                         {
                             _warnMsg = _warnMsg + 1;
                             lbWarning.Text = @"Warning: " + _warnMsg;
+                            WarningLog += "[Login][" + Convert.ToString(DateTime.Now.TimeOfDay.Hours + ":" + DateTime.Now.TimeOfDay.Minutes) + "] " + e.Data + Environment.NewLine;
                         }
 
                         #endregion information
@@ -893,8 +905,9 @@ namespace Server_Viewer.Forms
             }
         }
 
+
         #endregion Server Manager
 
-        
+       
     }
 }
