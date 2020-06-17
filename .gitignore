@@ -349,3 +349,4 @@ ASALocalRun/
 healthchecksdb
 Server Viewer/obj/x86/Debug/Server Viewer.csproj.FileListAbsolute.txt
 .vs/Server Viewer/v16/.suo
+Server Viewer/bin/Release/SM_config.ini
