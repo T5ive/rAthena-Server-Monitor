@@ -10,3 +10,4 @@ D:\Github\rAthena-Server-Monitor\Server Viewer\obj\x86\Release\Server_Viewer.Pro
 D:\Github\rAthena-Server-Monitor\Server Viewer\obj\x86\Release\Server Viewer.csproj.GenerateResource.cache
 D:\Github\rAthena-Server-Monitor\Server Viewer\obj\x86\Release\Server Monitor.exe
 D:\Github\rAthena-Server-Monitor\Server Viewer\obj\x86\Release\Server Monitor.pdb
+D:\Github\rAthena-Server-Monitor\Server Viewer\obj\x86\Release\Server Viewer.csproj.CoreCompileInputs.cache

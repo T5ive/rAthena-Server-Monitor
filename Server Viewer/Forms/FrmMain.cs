@@ -17,6 +17,9 @@ namespace Server_Viewer.Forms
 
         public static string ErrorLog;
         public static string WarningLog;
+        public static string SqlLog;
+        public static string DebugLog;
+
 
         private static bool _onOff;
         private static bool _trayMsg;
@@ -42,6 +45,7 @@ namespace Server_Viewer.Forms
             {
                 Handler.IniRead();
             }
+
             lbDebug.Text = @"Debug: " + _debugMsg;
             lbSql.Text = @"SQL: " + _sqlMsg;
             lbError.Text = @"Error: " + _errorMsg;
@@ -85,7 +89,7 @@ namespace Server_Viewer.Forms
             if (!_trayMsg)
             {
                 tray.BalloonTipTitle = @"Server Monitor";
-                tray.BalloonTipText = @"Minimazed to tray.";
+                tray.BalloonTipText = @"Minimized to tray.";
                 _trayMsg = true;
                 tray.ShowBalloonTip(250);
             }
@@ -117,6 +121,20 @@ namespace Server_Viewer.Forms
         private void btnWarning_Click(object sender, EventArgs e)
         {
             var frmLog = new FrmLog {Text = @"Warning Log", Value = WarningLog};
+            frmLog.ShowDialog();
+            frmLog.Dispose();
+        }
+
+        private void btnSql_Click(object sender, EventArgs e)
+        {
+            var frmLog = new FrmLog { Text = @"SQL Log", Value = SqlLog };
+            frmLog.ShowDialog();
+            frmLog.Dispose();
+        }
+
+        private void btnDebug_Click(object sender, EventArgs e)
+        {
+            var frmLog = new FrmLog { Text = @"Debug Log", Value = DebugLog };
             frmLog.ShowDialog();
             frmLog.Dispose();
         }
@@ -182,6 +200,9 @@ namespace Server_Viewer.Forms
                 _playerMsg = 0;
                 ErrorLog = string.Empty;
                 WarningLog = string.Empty;
+                SqlLog = string.Empty;
+                DebugLog = string.Empty;
+
                 lbDebug.Text = @"Debug: " + _debugMsg;
                 lbSql.Text = @"SQL: " + _sqlMsg;
                 lbError.Text = @"Error: " + _errorMsg;
@@ -401,11 +422,13 @@ namespace Server_Viewer.Forms
                         {
                             _debugMsg = _debugMsg + 1;
                             lbDebug.Text = @"Debug: " + _debugMsg;
+                            DebugLog += "[Login][" + Convert.ToString(DateTime.Now.TimeOfDay.Hours + ":" + DateTime.Now.TimeOfDay.Minutes) + "] " + e.Data + Environment.NewLine;
                         }
                         else if (e.Data.Contains("[SQL]"))
                         {
                             _sqlMsg = _sqlMsg + 1;
                             lbSql.Text = @"SQL: " + _sqlMsg;
+                            SqlLog += "[Login][" + Convert.ToString(DateTime.Now.TimeOfDay.Hours + ":" + DateTime.Now.TimeOfDay.Minutes) + "] " + e.Data + Environment.NewLine;
                         }
                         else if (e.Data.Contains("[Warning]"))
                         {
@@ -625,17 +648,19 @@ namespace Server_Viewer.Forms
                         {
                             _debugMsg = _debugMsg + 1;
                             lbDebug.Text = @"Debug: " + _debugMsg;
+                            DebugLog += "[Char][" + Convert.ToString(DateTime.Now.TimeOfDay.Hours + ":" + DateTime.Now.TimeOfDay.Minutes) + "] " + e.Data + Environment.NewLine;
                         }
                         else if (e.Data.Contains("[SQL]"))
                         {
                             _sqlMsg = _sqlMsg + 1;
                             lbSql.Text = @"SQL: " + _sqlMsg;
+                            SqlLog += "[Char][" + Convert.ToString(DateTime.Now.TimeOfDay.Hours + ":" + DateTime.Now.TimeOfDay.Minutes) + "] " + e.Data + Environment.NewLine;
                         }
                         else if (e.Data.Contains("[Warning]"))
                         {
                             _warnMsg = _warnMsg + 1;
                             lbWarning.Text = @"Warning: " + _warnMsg;
-                            WarningLog += "[Login][" + Convert.ToString(DateTime.Now.TimeOfDay.Hours + ":" + DateTime.Now.TimeOfDay.Minutes) + "] " + e.Data + Environment.NewLine;
+                            WarningLog += "[Char][" + Convert.ToString(DateTime.Now.TimeOfDay.Hours + ":" + DateTime.Now.TimeOfDay.Minutes) + "] " + e.Data + Environment.NewLine;
                         }
 
                         #endregion information
@@ -828,17 +853,19 @@ namespace Server_Viewer.Forms
                         {
                             _debugMsg = _debugMsg + 1;
                             lbDebug.Text = @"Debug: " + _debugMsg;
+                            DebugLog += "[Map][" + Convert.ToString(DateTime.Now.TimeOfDay.Hours + ":" + DateTime.Now.TimeOfDay.Minutes) + "] " + e.Data + Environment.NewLine;
                         }
                         else if (e.Data.Contains("[SQL]"))
                         {
                             _sqlMsg = _sqlMsg + 1;
                             lbSql.Text = @"SQL: " + _sqlMsg;
+                            SqlLog += "[Map][" + Convert.ToString(DateTime.Now.TimeOfDay.Hours + ":" + DateTime.Now.TimeOfDay.Minutes) + "] " + e.Data + Environment.NewLine;
                         }
                         else if (e.Data.Contains("[Warning]"))
                         {
                             _warnMsg = _warnMsg + 1;
                             lbWarning.Text = @"Warning: " + _warnMsg;
-                            WarningLog += "[Login][" + Convert.ToString(DateTime.Now.TimeOfDay.Hours + ":" + DateTime.Now.TimeOfDay.Minutes) + "] " + e.Data + Environment.NewLine;
+                            WarningLog += "[Map][" + Convert.ToString(DateTime.Now.TimeOfDay.Hours + ":" + DateTime.Now.TimeOfDay.Minutes) + "] " + e.Data + Environment.NewLine;
                         }
 
                         #endregion information
@@ -906,8 +933,9 @@ namespace Server_Viewer.Forms
         }
 
 
+
         #endregion Server Manager
 
-       
+        
     }
 }

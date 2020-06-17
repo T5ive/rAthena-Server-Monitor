@@ -61,6 +61,8 @@
             this.tcExit = new System.Windows.Forms.ToolStripMenuItem();
             this.btnError = new System.Windows.Forms.Button();
             this.btnWarning = new System.Windows.Forms.Button();
+            this.btnDebug = new System.Windows.Forms.Button();
+            this.btnSql = new System.Windows.Forms.Button();
             this.panelUser.SuspendLayout();
             this.traycon.SuspendLayout();
             this.SuspendLayout();
@@ -355,7 +357,7 @@
             this.btnError.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnError.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.btnError.ForeColor = System.Drawing.Color.White;
-            this.btnError.Location = new System.Drawing.Point(563, 99);
+            this.btnError.Location = new System.Drawing.Point(384, 99);
             this.btnError.Name = "btnError";
             this.btnError.Size = new System.Drawing.Size(77, 22);
             this.btnError.TabIndex = 49;
@@ -370,13 +372,43 @@
             this.btnWarning.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnWarning.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.btnWarning.ForeColor = System.Drawing.Color.White;
-            this.btnWarning.Location = new System.Drawing.Point(646, 99);
+            this.btnWarning.Location = new System.Drawing.Point(467, 99);
             this.btnWarning.Name = "btnWarning";
-            this.btnWarning.Size = new System.Drawing.Size(77, 22);
+            this.btnWarning.Size = new System.Drawing.Size(90, 22);
             this.btnWarning.TabIndex = 50;
             this.btnWarning.Text = "Warning Log";
             this.btnWarning.UseVisualStyleBackColor = false;
             this.btnWarning.Click += new System.EventHandler(this.btnWarning_Click);
+            // 
+            // btnDebug
+            // 
+            this.btnDebug.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(191)))), ((int)(((byte)(62)))));
+            this.btnDebug.FlatAppearance.BorderColor = System.Drawing.Color.ForestGreen;
+            this.btnDebug.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDebug.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.btnDebug.ForeColor = System.Drawing.Color.White;
+            this.btnDebug.Location = new System.Drawing.Point(646, 99);
+            this.btnDebug.Name = "btnDebug";
+            this.btnDebug.Size = new System.Drawing.Size(77, 22);
+            this.btnDebug.TabIndex = 52;
+            this.btnDebug.Text = "Debug Log";
+            this.btnDebug.UseVisualStyleBackColor = false;
+            this.btnDebug.Click += new System.EventHandler(this.btnDebug_Click);
+            // 
+            // btnSql
+            // 
+            this.btnSql.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(191)))), ((int)(((byte)(62)))));
+            this.btnSql.FlatAppearance.BorderColor = System.Drawing.Color.ForestGreen;
+            this.btnSql.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSql.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.btnSql.ForeColor = System.Drawing.Color.White;
+            this.btnSql.Location = new System.Drawing.Point(563, 99);
+            this.btnSql.Name = "btnSql";
+            this.btnSql.Size = new System.Drawing.Size(77, 22);
+            this.btnSql.TabIndex = 51;
+            this.btnSql.Text = "SQL Log";
+            this.btnSql.UseVisualStyleBackColor = false;
+            this.btnSql.Click += new System.EventHandler(this.btnSql_Click);
             // 
             // FrmMain
             // 
@@ -386,6 +418,8 @@
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(750, 580);
+            this.Controls.Add(this.btnDebug);
+            this.Controls.Add(this.btnSql);
             this.Controls.Add(this.btnWarning);
             this.Controls.Add(this.btnError);
             this.Controls.Add(this.panelUser);
@@ -451,6 +485,8 @@
         private System.Windows.Forms.ToolStripMenuItem tcExit;
         private System.Windows.Forms.Button btnError;
         private System.Windows.Forms.Button btnWarning;
+        private System.Windows.Forms.Button btnDebug;
+        private System.Windows.Forms.Button btnSql;
     }
 }
 
