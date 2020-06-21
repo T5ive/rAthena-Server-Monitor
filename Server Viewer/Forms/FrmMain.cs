@@ -849,6 +849,12 @@ namespace Server_Viewer.Forms
                             lbError.Text = @"Error: " + _errorMsg;
                             ErrorLog += "[Map][" + Convert.ToString(DateTime.Now.TimeOfDay.Hours + ":" + DateTime.Now.TimeOfDay.Minutes) + "] " + e.Data + Environment.NewLine;
                         }
+                        else if (e.Data.Contains("script error")) // special error
+                        {
+                            _errorMsg = _errorMsg + 1;
+                            lbError.Text = @"Error: " + _errorMsg;
+                            ErrorLog += "[Map][" + Convert.ToString(DateTime.Now.TimeOfDay.Hours + ":" + DateTime.Now.TimeOfDay.Minutes) + "] " + e.Data + Environment.NewLine;
+                        }
                         else if (e.Data.Contains("[Debug]"))
                         {
                             _debugMsg = _debugMsg + 1;
