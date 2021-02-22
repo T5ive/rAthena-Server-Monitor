@@ -20,7 +20,6 @@ namespace Server_Viewer.Forms
         public static string SqlLog;
         public static string DebugLog;
 
-
         private static bool _onOff;
         private static bool _trayMsg;
 
@@ -113,14 +112,14 @@ namespace Server_Viewer.Forms
 
         private void btnError_Click(object sender, EventArgs e)
         {
-            var frmLog = new FrmLog {Text = @"Error Log", Value = ErrorLog};
+            var frmLog = new FrmLog { Text = @"Error Log", Value = ErrorLog };
             frmLog.ShowDialog();
             frmLog.Dispose();
         }
 
         private void btnWarning_Click(object sender, EventArgs e)
         {
-            var frmLog = new FrmLog {Text = @"Warning Log", Value = WarningLog};
+            var frmLog = new FrmLog { Text = @"Warning Log", Value = WarningLog };
             frmLog.ShowDialog();
             frmLog.Dispose();
         }
@@ -172,14 +171,14 @@ namespace Server_Viewer.Forms
                     }
                     catch
                     {
+                        //
                     }
                     LoginLog.Clear();
                     CharLog.Clear();
                     MapLog.Clear();
 
-                    RunWithRedirect(Handler.LoginExePath);
-                    RunWithRedirect(Handler.CharExePath);
-                    RunWithRedirect(Handler.MapExePath);
+                    serverWorker.RunWorkerAsync();
+
                     btnStart.Text = @"Stop";
                     tcControl.Text = @"Stop";
                 }
@@ -212,7 +211,6 @@ namespace Server_Viewer.Forms
                 KillProcess(ProcNameCfg(Handler.CharExePath));
                 KillProcess(ProcNameCfg(Handler.MapExePath));
             }
-
         }
 
         private void Option()
@@ -314,13 +312,27 @@ namespace Server_Viewer.Forms
 
         #region Server Manager
 
+        private void serverWorker_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+        {
+            try
+            {
+                RunWithRedirect(Handler.LoginExePath);
+                RunWithRedirect(Handler.CharExePath);
+                RunWithRedirect(Handler.MapExePath);
+            }
+            catch
+            {
+                serverWorker.CancelAsync();
+            }
+        }
+
         public void KillProcess(string processName)
         {
             foreach (var p in Process.GetProcesses())
             {
                 try
                 {
-                    if (p.ProcessName.ToLower().Contains(processName.ToLower()))
+                    if (p.ProcessName.IndexOf(processName, StringComparison.OrdinalIgnoreCase) >= 0)
                     {
                         p.Kill();
                     }
@@ -688,35 +700,35 @@ namespace Server_Viewer.Forms
                                 else if (e.Data.Contains("[Notice]"))
                                 {
                                     CharLog.AppendText("[Notice]", Handler.Notice);
-                                    var oriEData = e.Data; 
+                                    var oriEData = e.Data;
                                     var newEData = oriEData.Remove(0, 8);
                                     CharLog.AppendText(newEData + Environment.NewLine);
                                 }
                                 else if (e.Data.Contains("[Warning]"))
                                 {
                                     CharLog.AppendText("[Warning]", Handler.Warning);
-                                    var oriEData = e.Data; 
+                                    var oriEData = e.Data;
                                     var newEData = oriEData.Remove(0, 9);
                                     CharLog.AppendText(newEData + Environment.NewLine);
                                 }
                                 else if (e.Data.Contains("[Error]"))
                                 {
                                     CharLog.AppendText("[Error]", Handler.Error);
-                                    var oriEData = e.Data; 
+                                    var oriEData = e.Data;
                                     var newEData = oriEData.Remove(0, 7);
                                     CharLog.AppendText(newEData + Environment.NewLine);
                                 }
                                 else if (e.Data.Contains("[SQL]"))
                                 {
                                     CharLog.AppendText("[SQL]", Handler.Sql);
-                                    var oriEData = e.Data; 
+                                    var oriEData = e.Data;
                                     var newEData = oriEData.Remove(0, 5);
                                     CharLog.AppendText(newEData + Environment.NewLine);
                                 }
                                 else if (e.Data.Contains("[Debug]"))
                                 {
                                     CharLog.AppendText("[Debug]", Handler.Debug);
-                                    var oriEData = e.Data; 
+                                    var oriEData = e.Data;
                                     var newEData = oriEData.Remove(0, 7);
                                     CharLog.AppendText(newEData + Environment.NewLine);
                                 }
@@ -938,10 +950,6 @@ namespace Server_Viewer.Forms
             }
         }
 
-
-
         #endregion Server Manager
-
-        
     }
 }

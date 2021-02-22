@@ -63,6 +63,7 @@
             this.btnWarning = new System.Windows.Forms.Button();
             this.btnDebug = new System.Windows.Forms.Button();
             this.btnSql = new System.Windows.Forms.Button();
+            this.serverWorker = new System.ComponentModel.BackgroundWorker();
             this.panelUser.SuspendLayout();
             this.traycon.SuspendLayout();
             this.SuspendLayout();
@@ -230,7 +231,7 @@
             this.lbVersion.Name = "lbVersion";
             this.lbVersion.Size = new System.Drawing.Size(37, 13);
             this.lbVersion.TabIndex = 45;
-            this.lbVersion.Text = "v2.2.6";
+            this.lbVersion.Text = "v2.5.1";
             // 
             // panelUser
             // 
@@ -410,6 +411,12 @@
             this.btnSql.UseVisualStyleBackColor = false;
             this.btnSql.Click += new System.EventHandler(this.btnSql_Click);
             // 
+            // serverWorker
+            // 
+            this.serverWorker.WorkerReportsProgress = true;
+            this.serverWorker.WorkerSupportsCancellation = true;
+            this.serverWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.serverWorker_DoWork);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -487,6 +494,7 @@
         private System.Windows.Forms.Button btnWarning;
         private System.Windows.Forms.Button btnDebug;
         private System.Windows.Forms.Button btnSql;
+        private System.ComponentModel.BackgroundWorker serverWorker;
     }
 }
 
