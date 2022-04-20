@@ -325,6 +325,7 @@ public class ProcessHelper
         var proLogin = ProcNameCfg(PublicClass.MySettings.LoginExePath);
         var proChar = ProcNameCfg(PublicClass.MySettings.CharExePath);
         var proMap = ProcNameCfg(PublicClass.MySettings.MapExePath);
+        var proWeb = ProcNameCfg(PublicClass.MySettings.WebExePath);
 
         var proc = (Process)sender;
         var lower = proc.ProcessName.ToLower();
@@ -350,6 +351,14 @@ public class ProcessHelper
             Program.FrmMain.txtMap.Invoke(delegate
             {
                 Program.FrmMain.txtMap.AppendText(">>Map Server - stopped<<" + Environment.NewLine);
+            });
+        }
+
+        if (lower == proWeb.ToLower())
+        {
+            Program.FrmMain.txtWeb.Invoke(delegate
+            {
+                Program.FrmMain.txtWeb.AppendText(">>Web Server - stopped<<" + Environment.NewLine);
             });
         }
     }

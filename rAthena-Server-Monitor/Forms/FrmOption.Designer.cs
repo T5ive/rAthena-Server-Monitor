@@ -248,6 +248,7 @@
             // 
             // btnWeb
             // 
+            this.btnWeb.Enabled = false;
             this.btnWeb.Location = new System.Drawing.Point(302, 99);
             this.btnWeb.Name = "btnWeb";
             this.btnWeb.Size = new System.Drawing.Size(30, 23);
@@ -258,6 +259,7 @@
             // 
             // txtWeb
             // 
+            this.txtWeb.Enabled = false;
             this.txtWeb.Location = new System.Drawing.Point(65, 99);
             this.txtWeb.Name = "txtWeb";
             this.txtWeb.Size = new System.Drawing.Size(231, 23);
