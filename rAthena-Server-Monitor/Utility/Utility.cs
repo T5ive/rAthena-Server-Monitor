@@ -6,6 +6,7 @@ public static class Utility
     {
         return name.StartsWith(value, StringComparison.CurrentCultureIgnoreCase);
     }
+
     public static void AppendText(this RichTextBox box, string text, Color color)
     {
         box.SelectionStart = box.TextLength;

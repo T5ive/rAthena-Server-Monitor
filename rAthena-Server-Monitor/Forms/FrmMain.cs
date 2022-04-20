@@ -227,9 +227,7 @@ public partial class FrmMain : Form
             "Powered by T5ive\n" +
             "Github: https://github.com/T5ive/rAthena-Server-Monitor\n\n" +
 
-
             "Base on: rAthena Server Monitor - JefteCosta\n\n" +
-
 
             "Note: Load status is not displayed. Makes it load as fast as the original");
     }
@@ -308,7 +306,6 @@ public partial class FrmMain : Form
         Program.FrmLog.Show();
         Program.FrmLog.UpdateValue();
     }
-
 
     private void btnStart_Click(object sender, EventArgs e)
     {

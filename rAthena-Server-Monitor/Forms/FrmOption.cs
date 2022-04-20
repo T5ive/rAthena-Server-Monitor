@@ -143,7 +143,7 @@ public partial class FrmOption : Form
         }
     }
 
-    #endregion Button Events
+    #endregion Events
 
     private void AllLabelClick(object sender, EventArgs e)
     {
@@ -155,6 +155,4 @@ public partial class FrmOption : Form
         }
         colorDlg.Dispose();
     }
-
-
 }
