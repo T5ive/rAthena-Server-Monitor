@@ -441,6 +441,7 @@ public partial class FrmMain : Form
         txtLogin.Clear();
         txtChar.Clear();
         txtMap.Clear();
+        txtWeb.Clear();
 
         _errorAll = 0;
         _errorChar = 0;
